@@ -89,4 +89,9 @@ public partial class AuthorizationWindow : Window
             ErrorTextBlock.Text = ex.Message;
         }
     }
+
+    private void OnCancelClicked(object? sender, RoutedEventArgs e)
+    {
+        Close();
+    }
 }
