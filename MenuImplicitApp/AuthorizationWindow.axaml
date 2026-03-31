@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="220"
+        x:Class="MenuImplicitApp.AuthorizationWindow"
+        Title="Авторизация">
+    <StackPanel Margin="16">
+        <TextBlock Text="Имя пользователя" />
+        <TextBox x:Name="UsernameTextBox" />
+        <TextBlock Text="Пароль" Margin="0,10,0,0" />
+        <TextBox x:Name="PasswordTextBox" />
+
+        <Button Content="Войти" Margin="0,16,0,0" HorizontalAlignment="Left" Click="OnLoginClicked" />
+        <TextBlock x:Name="ErrorTextBlock" Foreground="Red" Margin="0,10,0,0" />
+    </StackPanel>
+</Window>

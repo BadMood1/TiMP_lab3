@@ -1,0 +1,15 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MenuExplicitApp.MainWindow"
+        Title="MenuExplicitApp">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" x:Name="MenuHost" />
+        <StackPanel DockPanel.Dock="Bottom" Margin="12">
+            <TextBlock Text="Выбранный пункт:" />
+            <TextBlock x:Name="ResultTextBlock" Text="(нет)" Margin="0,4,0,0" />
+        </StackPanel>
+    </DockPanel>
+</Window>
