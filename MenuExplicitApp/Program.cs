@@ -1,21 +1,22 @@
-﻿using Avalonia;
 using System;
+using System.Windows.Forms;
 
 namespace MenuExplicitApp;
 
-class Program
+internal static class Program
 {
-    // Initialization code. Don't use any Avalonia, third-party APIs or any
-    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-    // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    private static void Main()
+    {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
 
-    // Avalonia configuration, don't remove; also used by visual designer.
-    public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
-            .UsePlatformDetect()
-            .WithInterFont()
-            .LogToTrace();
+        using var login = new LoginForm();
+        if (login.ShowDialog() != DialogResult.OK || login.ResultStatuses == null)
+        {
+            return;
+        }
+
+        Application.Run(new MainForm(login.ResultStatuses));
+    }
 }
