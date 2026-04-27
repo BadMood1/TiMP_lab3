@@ -20,7 +20,7 @@
   <ItemGroup>
     <Content Include="..\\menu.txt" CopyToOutputDirectory="PreserveNewest" Link="menu.txt" />
     <Content Include="..\\USERS.txt" CopyToOutputDirectory="PreserveNewest" Link="USERS.txt" />
-    <Content Include="..\\..\\3LabTimp\\Resources\\keys.png" CopyToOutputDirectory="PreserveNewest" Link="keys.png" />
+    <Content Include="..\\Resources\\keys.png" CopyToOutputDirectory="PreserveNewest" Link="keys.png" />
   </ItemGroup>
 
   <Target Name="BuildReferencedLibraries" BeforeTargets="ResolveReferences">
