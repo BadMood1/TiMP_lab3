@@ -24,7 +24,7 @@ public class LoginForm : Form
 
     public LoginForm()
     {
-        var usersPath = Path.Combine(AppContext.BaseDirectory, "USERS.txt");
+        var usersPath = FileLocator.FindFile("USERS.txt");
         _authorizationService = new AuthorizationService(usersPath);
         _keysImage = LoadKeysImage();
         BuildUi();
@@ -309,7 +309,7 @@ public class LoginForm : Form
 
     private static Image LoadKeysImage()
     {
-        var imagePath = Path.Combine(AppContext.BaseDirectory, "keys.png");
+        var imagePath = FileLocator.FindFile("keys.png");
         return File.Exists(imagePath) ? Image.FromFile(imagePath) : new Bitmap(55, 45);
     }
 }

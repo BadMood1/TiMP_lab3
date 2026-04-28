@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using System.IO;
 using DataMenuLibrary;
 
 namespace MenuImplicitApp;
@@ -15,7 +16,7 @@ public class MainForm : Form
     public MainForm(Dictionary<string, int> statuses)
     {
         _statuses = statuses;
-        _menu = new DataMenu(PathFor("menu.txt"));
+        _menu = new DataMenu(FileLocator.FindFile("menu.txt"));
 
         InitializeUi();
         BuildMenu();
@@ -99,5 +100,5 @@ public class MainForm : Form
     public void Content() => MessageBox.Show("Оглавление", "Меню");
     public void About() => MessageBox.Show("О программе", "Меню");
 
-    private static string PathFor(string fileName) => System.IO.Path.Combine(AppContext.BaseDirectory, fileName);
+    // Use FileLocator.FindFile instead of local PathFor helper
 }
