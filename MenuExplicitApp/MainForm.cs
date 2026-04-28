@@ -44,7 +44,8 @@ public class MainForm : Form
             return;
         }
 
-        var menuInstance = Activator.CreateInstance(menuType, new object[] { Path.Combine(AppContext.BaseDirectory, "menu.txt") });
+        var menuPath = FileLocator.FindFile("menu.txt");
+        var menuInstance = Activator.CreateInstance(menuType, new object[] { menuPath });
         var roots = menuType.GetProperty("Roots")?.GetValue(menuInstance) as IEnumerable;
         if (roots == null)
         {
@@ -139,4 +140,6 @@ public class MainForm : Form
     public void Help() => MessageBox.Show("Справка", "Меню");
     public void Content() => MessageBox.Show("Оглавление", "Меню");
     public void About() => MessageBox.Show("О программе", "Меню");
+
+    // Use FileLocator.FindFile instead of the local FindMenuPath helper
 }

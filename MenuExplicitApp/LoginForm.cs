@@ -314,7 +314,7 @@ public class LoginForm : Form
 
         var assembly = Assembly.LoadFrom(dllPath);
         var authType = assembly.GetType("AuthorizationLibrary.AuthorizationService", throwOnError: true)!;
-        var usersPath = Path.Combine(AppContext.BaseDirectory, "USERS.txt");
+        var usersPath = FileLocator.FindFile("USERS.txt");
         var service = Activator.CreateInstance(authType, new object[] { usersPath })
             ?? throw new InvalidOperationException("Не удалось создать AuthorizationService.");
 
@@ -326,7 +326,7 @@ public class LoginForm : Form
 
     private static Image LoadKeysImage()
     {
-        var imagePath = Path.Combine(AppContext.BaseDirectory, "keys.png");
+        var imagePath = FileLocator.FindFile("keys.png");
         return File.Exists(imagePath) ? Image.FromFile(imagePath) : new Bitmap(55, 45);
     }
 }
